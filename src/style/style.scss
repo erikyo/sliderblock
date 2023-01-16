@@ -1,12 +1,55 @@
 /* frontend */
-.blaze-container .blaze-track>* {
-  align-items: center;
-  background: #aaa;
-  border: 2px solid #222;
-  border-radius: 6px;
-  color: #fff;
-  display: flex;
-  font-size: 30px;
-  height: 200px;
-  justify-content: center;
+.blaze-container .blaze-track {
+  flex-wrap: inherit !important;
+  > * {
+    align-items: center;
+    background: #aaa;
+    border: 2px solid #222;
+    border-radius: 6px;
+    color: #fff;
+    display: flex;
+    font-size: 30px;
+    height: 200px;
+    justify-content: center;
+  }
+}
+
+html body {
+  .blaze-slider {
+    /* default config */
+    --slides-to-show: 1;
+    --slide-gap: 20px;
+    /* force ltr - slider does not work in rtl mode */
+    direction: ltr;
+  }
+
+  .blaze-container {
+    position: relative;
+  }
+
+  .blaze-track-container {
+    overflow: hidden;
+  }
+
+  .blaze-track {
+    will-change: transform;
+    touch-action: pan-y;
+    display: flex;
+    gap: var(--slide-gap);
+    --slide-width: calc(
+      (100% - (var(--slides-to-show) - 1) * var(--slide-gap)) /
+      var(--slides-to-show)
+    );
+  }
+
+  .blaze-track,
+  .blaze-track > * {
+    box-sizing: border-box;
+  }
+
+  .blaze-track > * {
+    width: var(--slide-width);
+    flex-shrink: 0;
+  }
+
 }

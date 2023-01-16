@@ -1,6 +1,8 @@
 import { BlazeConfig } from 'blaze-slider';
 
+export const GALLERY_CORE_NAMESPACE: string = 'core/gallery';
 export const GALLERY_VARIATION_NAMESPACE: string = 'core/slider';
+export const GALLERY_VARIATION_CLASSNAME: string = 'gallery-slider';
 
 export const defaultConfig: BlazeConfig = {
 	all: {
